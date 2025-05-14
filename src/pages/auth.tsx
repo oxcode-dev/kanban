@@ -6,6 +6,31 @@ const AuthPage = () => {
                     <div className="">
                         <h2>Kanban</h2>
                     </div>
+
+                    {/* Login */}
+                    <div>
+                        <div>
+                            <p>
+                                Please enter your details
+                            </p>
+                            <p>
+                                Welcome Back
+                            </p>
+                        </div>
+
+                        <div>
+                            <form>
+                                <div>
+                                    <label>Email</label>
+                                    <input />
+                                </div>
+                                <div>
+                                    <label>Password</label>
+                                    <input />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
