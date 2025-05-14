@@ -10,18 +10,18 @@ const AuthPage = () => {
                     {/* Login */}
                     <div>
                         <div>
-                            <p>
+                            <p className="text-sm text-gray-500 font-medium">
                                 Please enter your details
                             </p>
-                            <p>
+                            <p className="font-bold text-3xl">
                                 Welcome Back
                             </p>
                         </div>
 
                         <div>
                             <form>
-                                <div>
-                                    <label>Email</label>
+                                <div className="relative">
+                                    <label className="absolute">Email</label>
                                     <input />
                                 </div>
                                 <div>
