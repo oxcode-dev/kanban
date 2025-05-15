@@ -41,6 +41,12 @@ const AuthPage = () => {
                                             Login
                                         </button>
                                     </div>
+
+                                    <div>
+                                        <a href="#">
+                                            
+                                        </a>
+                                    </div>
                                 </form>
                             </div>
                         </div>
