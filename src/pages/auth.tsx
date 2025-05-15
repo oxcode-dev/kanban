@@ -42,7 +42,7 @@ const AuthPage = () => {
                                         </button>
                                     </div>
 
-                                    <div className="inline-flex space-x-2">
+                                    <div className="inline-flex space-x-2 justify-center w-full">
                                         <span>
                                             Don't have an account?
                                         </span>
