@@ -20,14 +20,14 @@ const AuthPage = () => {
                             </div>
 
                             <div>
-                                <form>
+                                <form className="space-y-3">
                                     <div className="relative">
-                                        <label className="absolute">Email</label>
-                                        <input />
+                                        <label className="">Email</label>
+                                        <input type="text" className="focus:outline-none border border-gray-400 shadow p-2 w-full rounded" />
                                     </div>
-                                    <div>
+                                    <div className="py-1">
                                         <label>Password</label>
-                                        <input />
+                                        <input type="password" className="focus:outline-none border border-gray-400 shadow p-2 w-full rounded" />
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="flex items-center">
@@ -36,8 +36,8 @@ const AuthPage = () => {
                                         </div>
                                         <a href="#">forgot password</a>
                                     </div>
-                                    <div>
-                                        <button className="bg-blue-600 text-white w-full p-2 text-lg">
+                                    <div className="pt-5">
+                                        <button className="bg-blue-600 text-white w-full p-2 text-lg rounded">
                                             Login
                                         </button>
                                     </div>
