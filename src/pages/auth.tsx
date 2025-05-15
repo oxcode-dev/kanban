@@ -43,8 +43,11 @@ const AuthPage = () => {
                                     </div>
 
                                     <div>
-                                        <a href="#">
+                                        <span>
                                             
+                                        </span>
+                                        <a href="#">
+
                                         </a>
                                     </div>
                                 </form>
