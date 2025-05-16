@@ -23,11 +23,11 @@ const AuthPage = () => {
                                 <form className="space-y-3">
                                     <div className="relative">
                                         <label className="">Email</label>
-                                        <input type="text" className="focus:outline-none border border-gray-400 shadow p-2 w-full rounded" />
+                                        <input type="text" className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
                                     </div>
                                     <div className="py-1">
                                         <label>Password</label>
-                                        <input type="password" className="focus:outline-none border border-gray-400 shadow p-2 w-full rounded" />
+                                        <input type="password" className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="flex items-center">
