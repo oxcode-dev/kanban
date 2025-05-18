@@ -1,3 +1,5 @@
+import Header from "@/components/layouts/Header";
+
 const DefaultLayout = ({ children }: {children: React.ReactNode}) => {
     return (
       <html lang="en">
