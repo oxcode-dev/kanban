@@ -1,3 +1,5 @@
+import DefaultLayout from "@/layout/default";
+
 const ProjectCard = () => {
     return (
         <>
@@ -61,13 +63,16 @@ const ProjectCard = () => {
 const Projects = () => {
     return (
         <>
-            <div className="p-4 flex space-x-4">
-                {
-                    [1,2,3].map(n => (
-                        <ProjectCard key={n} />
-                    ))
-                }
-            </div>
+            <DefaultLayout>
+                <div className="p-4 flex space-x-4">
+                    {
+                        [1,2,3].map(n => (
+                            <ProjectCard key={n} />
+                        ))
+                    }
+                </div>
+            </DefaultLayout>
+            
         </>
     )
 }
