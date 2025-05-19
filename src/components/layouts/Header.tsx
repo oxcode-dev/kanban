@@ -2,7 +2,7 @@ const Header = () => {
     return (
         <>
             <div>
-                <div>
+                <div className="flex mx-auto justify-between container">
                     <div>Kanban</div>
                     <div>
                         Hello Nav
