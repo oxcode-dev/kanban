@@ -64,7 +64,7 @@ const Projects = () => {
     return (
         <>
             <DefaultLayout>
-                <div className="mx-auto">
+                <div className="mx-auto container">
 
                     <div className="p-4 flex space-x-4">
                         {
