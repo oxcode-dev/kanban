@@ -64,13 +64,18 @@ const Projects = () => {
     return (
         <>
             <DefaultLayout>
-                <div className="p-4 flex space-x-4">
-                    {
-                        [1,2,3].map(n => (
-                            <ProjectCard key={n} />
-                        ))
-                    }
+                <div className="mx-auto">
+
+                    <div className="p-4 flex space-x-4">
+                        {
+                            [1,2,3].map(n => (
+                                <ProjectCard key={n} />
+                            ))
+                        }
+                    </div>
+
                 </div>
+                
             </DefaultLayout>
             
         </>
