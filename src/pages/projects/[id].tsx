@@ -4,7 +4,7 @@ const ProjectTasks = () => {
     return (
         <>
             <DefaultLayout>
-                <div>
+                <div className="mx-auto container">
                     Hello World
                 </div>
             </DefaultLayout>
