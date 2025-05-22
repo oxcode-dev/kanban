@@ -8,10 +8,8 @@ const ProjectTasks = () => {
                     Hello World
                 </div>
             </DefaultLayout>
-           
         </>
     )
 }
-
 
 export default ProjectTasks;
