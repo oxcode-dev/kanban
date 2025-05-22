@@ -4,12 +4,11 @@ const ProjectTasks = () => {
     return (
         <>
             <DefaultLayout>
-                
+                <div>
+                    Hello World
+                </div>
             </DefaultLayout>
-            <div>
-            Hello World
-            </div>
-        
+           
         </>
     )
 }
