@@ -1,3 +1,4 @@
+import BacklogList from "@/components/BacklogList";
 import DefaultLayout from "@/layout/default";
 
 const ProjectTasks = () => {
@@ -33,7 +34,7 @@ const ProjectTasks = () => {
                     </div>
 
                     <div>
-                        
+                        <BacklogList />
                     </div>
                    
                 </div>
