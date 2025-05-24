@@ -34,7 +34,7 @@ const ProjectTasks = () => {
                     </div>
 
                     <div>
-                        <BacklogList />
+                        {/* <BacklogList /> */}
                     </div>
                    
                 </div>
