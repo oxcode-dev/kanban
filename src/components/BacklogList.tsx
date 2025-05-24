@@ -12,7 +12,7 @@ const BacklogList = () => {
                                     <tr>
                                         <th className="px-6 align-middle border border-solid border-gray-300 text-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             <button>
-                                                <span className="w-4 h-4 border border-gray-600 inline-flex rounded items-center justify-center">
+                                                <span className="w-4 h-4 border border-gray-600 inline-flex rounded items-center justify-center cursor-pointer">
                                                     {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg> */}
                                                 </span>
                                             </button>
@@ -36,7 +36,7 @@ const BacklogList = () => {
                                         <tr>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left text-gray-500 ">
                                                 <button type="button">
-                                                    <span className="w-4 h-4 border border-gray-600 inline-flex rounded items-center justify-center bg-gray-900 text-white">
+                                                    <span className="w-4 h-4 border border-gray-600 inline-flex rounded items-center justify-center bg-gray-900 text-white cursor-pointer">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
                                                     </span>
                                                 </button>
