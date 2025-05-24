@@ -21,7 +21,7 @@ const ProjectTasks = () => {
                                 {
                                     navItems.map((item, key) => (
                                         <div className="border-b-2 pb-3" key={key}>
-                                            <span className="text-sm">
+                                            <span className="text-sm text-gray-500">
                                                 {item}
                                             </span>
                                         </div>
@@ -30,6 +30,10 @@ const ProjectTasks = () => {
 
                             </div>
                         </div>
+                    </div>
+
+                    <div>
+                        
                     </div>
                    
                 </div>
