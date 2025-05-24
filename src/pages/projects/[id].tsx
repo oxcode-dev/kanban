@@ -89,6 +89,19 @@ const ProjectTasks = () => {
                                                     </span>
                                                 </p>
                                             </div>
+                                            <div className="border-t border-gray-200 mt-1 pt-1">
+                                                <div className="inline-flex space-x-1.5">
+                                                    <span className="text-xs bg-green-100 text-green-600 inline-flex items-center p-0.5 px-2 rounded">
+                                                        <span className="text-xs">Design</span>
+                                                    </span>
+                                                    <span className="text-xs bg-green-100 text-green-600 inline-flex items-center p-0.5 px-2 rounded">
+                                                        <span className="text-xs">Food Processing</span>
+                                                    </span>
+                                                    <span className="text-xs bg-green-100 text-green-600 inline-flex items-center p-0.5 px-2 rounded">
+                                                        <span className="text-xs">Web Application</span>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
