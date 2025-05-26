@@ -40,7 +40,17 @@ const ProjectTasks = () => {
                         {/* <BacklogList /> */}
                         {/* <TaskList /> */}
 
-                        <TaskGridList />
+                        <div>
+
+                            {
+                                Array.from('123456789', Number).map((item, key) => (
+                                    <div>
+                                        <TaskGridList />
+                                    </div>
+                                ))
+                            }
+                        </div>
+
                     </div>
                    
                 </div>
