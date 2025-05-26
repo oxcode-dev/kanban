@@ -1,5 +1,6 @@
 import BacklogList from "@/components/tasks/BacklogList";
 import TaskCard from "@/components/tasks/TaskCard";
+import TaskGridList from "@/components/tasks/TaskGridList";
 import TaskList from "@/components/tasks/TaskList";
 import DefaultLayout from "@/layout/default";
 
@@ -39,7 +40,7 @@ const ProjectTasks = () => {
                         {/* <BacklogList /> */}
                         {/* <TaskList /> */}
 
-                        
+                        <TaskGridList />
                     </div>
                    
                 </div>
