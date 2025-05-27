@@ -42,7 +42,7 @@ const ProjectTasks = () => {
 
                         <div className="flex space-x-4 w-full overflow-x-auto">
                             {
-                                Array.from('1234', Number).map((item, key) => (
+                                Array.from('124', Number).map((item, key) => (
                                     <div>
                                         <TaskGridList />
                                     </div>
