@@ -37,7 +37,7 @@ const ProjectTasks = () => {
                     </div>
 
                     <div className="pb-8">
-                        <BacklogList />
+                        {/* <BacklogList /> */}
                         {/* <TaskList /> */}
 
                         {/* <div className="flex space-x-4 w-full overflow-x-auto">
