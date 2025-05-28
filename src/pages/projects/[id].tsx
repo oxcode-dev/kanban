@@ -40,7 +40,7 @@ const ProjectTasks = () => {
                         {/* <BacklogList /> */}
                         {/* <TaskList /> */}
 
-                        {/* <div className="flex space-x-4 w-full overflow-x-auto">
+                        <div className="flex space-x-4 w-full overflow-x-auto">
                             {
                                 Array.from('124', Number).map((item, key) => (
                                     <div>
@@ -48,7 +48,7 @@ const ProjectTasks = () => {
                                     </div>
                                 ))
                             }
-                        </div> */}
+                        </div>
 
                     </div>
                    
