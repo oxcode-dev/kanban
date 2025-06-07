@@ -15,7 +15,7 @@ const TaskGridList = ({ status } : TaskGridListProps) => {
                 <div className="bg-gray-100 my-4 max-w-xs rounded p-1 max-h-[500px] overflow-scroll">
                     <div className="inline-flex items-center justify-between w-full p-2">
                         <p>
-                            Research
+                            { status?.title }
                         </p>
 
                         <button className="cursor-pointer inline-flex justify-center items-center bg-white rounded p-1">
