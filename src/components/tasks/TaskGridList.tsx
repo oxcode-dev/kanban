@@ -1,5 +1,5 @@
+import { TaskProps } from "@/data/tasks"
 import TaskCard from "./TaskCard"
-import { tasks } from "@/data/tasks"
 
 type StatusType = {
     id: number,
@@ -8,8 +8,9 @@ type StatusType = {
 
 type TaskGridListProps = {
     status: StatusType,
+    tasks: TaskProps[],
 }
-const TaskGridList = ({ status } : TaskGridListProps) => {
+const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
     const filteredTasks = tasks.filter(n => n.status === status.id)
     return (
         <>
