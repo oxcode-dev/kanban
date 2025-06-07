@@ -3,6 +3,7 @@ import TaskCard from "@/components/tasks/TaskCard";
 import TaskGridList from "@/components/tasks/TaskGridList";
 import TaskList from "@/components/tasks/TaskList";
 import DefaultLayout from "@/layout/default";
+import { taskStatus } from "@/data/tasks";
 
 const ProjectTasks = () => {
     const navItems = [
@@ -42,8 +43,8 @@ const ProjectTasks = () => {
 
                         <div className="flex space-x-4 w-full overflow-x-auto">
                             {
-                                Array.from('124', Number).map((item, key) => (
-                                    <div>
+                                taskStatus.map((item, key) => (
+                                    <div key={key}>
                                         <TaskGridList />
                                     </div>
                                 ))
