@@ -1,4 +1,5 @@
 import TaskCard from "./TaskCard"
+import { taskStatus } from "@/data/tasks";
 
 const TaskGridList = () => {
     return (
@@ -18,7 +19,7 @@ const TaskGridList = () => {
                     <div>
                         <div className="p-2 space-y-4">
                             {
-                                Array.from('123456789', Number).map((item, key) => (
+                                Array.from('1234569', Number).map((item, key) => (
                                     <div>
                                         <TaskCard />
                                     </div>
