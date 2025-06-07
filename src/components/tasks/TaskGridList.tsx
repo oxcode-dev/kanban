@@ -1,5 +1,4 @@
 import TaskCard from "./TaskCard"
-import { taskStatus } from "@/data/tasks";
 
 const TaskGridList = () => {
     return (
