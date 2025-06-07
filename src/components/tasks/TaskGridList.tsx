@@ -19,8 +19,8 @@ const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
     const filteredTasks = tasks.filter(n => n.status === status.id)
     return (
         <>
-            <div>
-                <div className="bg-gray-100 my-4 max-w-xs rounded p-1 max-h-[500px] overflow-scroll">
+            <div className="relative">
+                <div className="bg-gray-100 my-4 max-w-xs min-w-xs rounded p-1 max-h-[500px] overflow-scroll">
                     <div className="inline-flex items-center justify-between w-full p-2">
                         <p>
                             { status?.title }
