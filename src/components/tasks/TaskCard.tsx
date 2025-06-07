@@ -17,11 +17,12 @@ const TaskCard = ({ task }: TaskListProps) => {
     const style = transform ? {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
         zIndex: 1000,
+        position: 'fixed',
     } : undefined;
 
     return (
         <>
-            <div ref={setNodeRef} {...listeners} {...attributes} style={style} className="bg-white p-2 shadow border border-gray-50 rounded-lg relative z-50">
+            <div ref={setNodeRef} {...listeners} {...attributes} style={style} className="bg-white p-2 shadow border border-gray-50 rounded-lg z-50">
                 <div className="inline-flex justify-between items-center w-full">
                     <p>
                         <span className="text-xs bg-gray-100 text-gray-600 inline-flex items-center space-x-1.5 p-0.5 px-1.5 rounded">
