@@ -1,6 +1,14 @@
 import TaskCard from "./TaskCard"
 
-const TaskGridList = () => {
+type StatusType = {
+    id: number,
+    title: string
+}
+
+type TaskGridListProps = {
+    status: StatusType,
+}
+const TaskGridList = ({ status } : TaskGridListProps) => {
     return (
         <>
             <div>
