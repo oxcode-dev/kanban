@@ -1,3 +1,5 @@
+import { useDraggable } from "@dnd-kit/core"
+
 type TaskProps = {
     id: number, 
     title: string,
@@ -9,9 +11,16 @@ type TaskListProps = {
 }
 
 const TaskCard = ({ task }: TaskListProps) => {
+    const {attributes, listeners, setNodeRef, transform} = useDraggable({
+        id: task.id,
+    })
+    const style = transform ? {
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+    } : undefined;
+
     return (
         <>
-            <div className="bg-white p-2 shadow border border-gray-50 rounded-lg">
+            <div ref={setNodeRef} {...listeners} {...attributes} style={style} className="bg-white p-2 shadow border border-gray-50 rounded-lg">
                 <div className="inline-flex justify-between items-center w-full">
                     <p>
                         <span className="text-xs bg-gray-100 text-gray-600 inline-flex items-center space-x-1.5 p-0.5 px-1.5 rounded">
