@@ -17,7 +17,7 @@ const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
         id: status.id
       });
     const style = {
-        background: isOver ? 'green' : undefined,
+        background: isOver ? 'white' : undefined,
         zIndex: -1,
     };
     const filteredTasks = tasks.filter(n => n.status === status.id)
