@@ -13,14 +13,18 @@ type TaskGridListProps = {
     tasks: TaskProps[],
 }
 const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
-    const { setNodeRef } = useDroppable({
+    const {isOver, setNodeRef} = useDroppable({
         id: status.id
-    })
+      });
+    const style = {
+        background: isOver ? 'green' : undefined,
+        zIndex: -1,
+    };
     const filteredTasks = tasks.filter(n => n.status === status.id)
     return (
         <>
             <div className="relative">
-                <div className="bg-gray-100 my-4 max-w-xs min-w-xs rounded p-1 max-h-[500px] overflow-scroll">
+                <div className="bg-gray-100 my-4 max-w-xs min-w-xs rounded p-1 max-h-[500px] overflow-y-scroll">
                     <div className="inline-flex items-center justify-between w-full p-2">
                         <p>
                             { status?.title }
@@ -32,7 +36,7 @@ const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
                     </div>
 
                     <div>
-                        <div ref={setNodeRef} className="p-2 space-y-4">
+                        <div style={style} ref={setNodeRef} className="p-2 space-y-4">
                             {
                                 filteredTasks.map((task, key) => (
                                     <div key={key}>

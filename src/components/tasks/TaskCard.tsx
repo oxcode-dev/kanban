@@ -16,6 +16,7 @@ const TaskCard = ({ task }: TaskListProps) => {
     })
     const style = transform ? {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+        zIndex: 1000,
     } : undefined;
 
     return (
