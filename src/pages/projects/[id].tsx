@@ -43,9 +43,9 @@ const ProjectTasks = () => {
 
                         <div className="flex space-x-4 w-full overflow-x-auto">
                             {
-                                taskStatus.map((item, key) => (
+                                taskStatus.map((status, key) => (
                                     <div key={key}>
-                                        <TaskGridList />
+                                        <TaskGridList status={status} />
                                     </div>
                                 ))
                             }
