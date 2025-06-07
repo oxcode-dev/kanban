@@ -6,7 +6,7 @@ import DefaultLayout from "@/layout/default";
 import { TaskProps, taskStatus, tasks } from "@/data/tasks";
 import { useState } from "react";
 import TaskNav from "@/components/tasks/TaskNav";
-import { DragEndEvent } from "@dnd-kit/core";
+import { DndContext, DragEndEvent } from "@dnd-kit/core";
 
 const ProjectTasks = () => {
     const [allTasks, setAllTasks] = useState(tasks)
@@ -34,13 +34,15 @@ const ProjectTasks = () => {
                         {/* <TaskList /> */}
 
                         <div className="flex space-x-4 w-full overflow-x-auto">
-                            {
-                                taskStatus.map((status, key) => (
-                                    <div key={key}>
-                                        <TaskGridList tasks={allTasks} status={status} />
-                                    </div>
-                                ))
-                            }
+                            <DndContext onDragEnd={handleDragEnd}>
+                                {
+                                    taskStatus.map((status, key) => (
+                                        <div key={key}>
+                                            <TaskGridList tasks={allTasks} status={status} />
+                                        </div>
+                                    ))
+                                }
+                            </DndContext>
                         </div>
 
                     </div>

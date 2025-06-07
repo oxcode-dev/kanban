@@ -1,5 +1,7 @@
+'use client'
 import { TaskProps } from "@/data/tasks"
 import TaskCard from "./TaskCard"
+import { useDroppable } from "@dnd-kit/core"
 
 type StatusType = {
     id: number,
@@ -11,6 +13,9 @@ type TaskGridListProps = {
     tasks: TaskProps[],
 }
 const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
+    const { setNodeRef } = useDroppable({
+        id: status.id
+    })
     const filteredTasks = tasks.filter(n => n.status === status.id)
     return (
         <>
@@ -27,7 +32,7 @@ const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
                     </div>
 
                     <div>
-                        <div className="p-2 space-y-4">
+                        <div ref={setNodeRef} className="p-2 space-y-4">
                             {
                                 filteredTasks.map((task, key) => (
                                     <div key={key}>
