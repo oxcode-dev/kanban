@@ -3,14 +3,20 @@ import TaskCard from "@/components/tasks/TaskCard";
 import TaskGridList from "@/components/tasks/TaskGridList";
 import TaskList from "@/components/tasks/TaskList";
 import DefaultLayout from "@/layout/default";
-import { taskStatus, tasks } from "@/data/tasks";
+import { TaskProps, taskStatus, tasks } from "@/data/tasks";
 import { useState } from "react";
 import TaskNav from "@/components/tasks/TaskNav";
+import { DragEndEvent } from "@dnd-kit/core";
 
 const ProjectTasks = () => {
     const [allTasks, setAllTasks] = useState(tasks)
-    const handleDragEnd = () => {
-        
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event
+
+        if(!over) return 
+
+        const taskId = active.id as string
+        const newStatus = over.id as TaskProps['status']
     }
    
     return (
