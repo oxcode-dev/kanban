@@ -15,8 +15,12 @@ const ProjectTasks = () => {
 
         if(!over) return 
 
-        const taskId = active.id as string
+        const taskId = active.id as number
         const newStatus = over.id as TaskProps['status']
+
+        setAllTasks(() => allTasks.map((task) => task.id === taskId ? {
+            ...task, status: newStatus
+        } : task))
     }
    
     return (
