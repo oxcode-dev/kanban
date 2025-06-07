@@ -1,4 +1,5 @@
 import TaskCard from "./TaskCard"
+import { tasks } from "@/data/tasks"
 
 type StatusType = {
     id: number,
@@ -9,6 +10,7 @@ type TaskGridListProps = {
     status: StatusType,
 }
 const TaskGridList = ({ status } : TaskGridListProps) => {
+    const filteredTasks = tasks.filter(n => n.status === status.id)
     return (
         <>
             <div>
@@ -26,7 +28,7 @@ const TaskGridList = ({ status } : TaskGridListProps) => {
                     <div>
                         <div className="p-2 space-y-4">
                             {
-                                Array.from('1234569', Number).map((item, key) => (
+                                filteredTasks.map((item, key) => (
                                     <div>
                                         <TaskCard />
                                     </div>
