@@ -45,7 +45,7 @@ const ProjectTasks = () => {
                             {
                                 taskStatus.map((status, key) => (
                                     <div key={key}>
-                                        <TaskGridList status={status} />
+                                        <TaskGridList tasks={tasks} status={status} />
                                     </div>
                                 ))
                             }
