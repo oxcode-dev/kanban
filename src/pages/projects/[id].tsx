@@ -3,7 +3,7 @@ import TaskCard from "@/components/tasks/TaskCard";
 import TaskGridList from "@/components/tasks/TaskGridList";
 import TaskList from "@/components/tasks/TaskList";
 import DefaultLayout from "@/layout/default";
-import { taskStatus } from "@/data/tasks";
+import { taskStatus, tasks } from "@/data/tasks";
 
 const ProjectTasks = () => {
     const navItems = [

@@ -8,7 +8,7 @@ export const taskStatus: TaskStatusProps[] = [
     { id: 3, title: "Done",}
 ];
 
-type TaskProps = {
+export type TaskProps = {
     id: number, 
     title: string,
     status: number,
