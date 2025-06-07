@@ -1,4 +1,14 @@
-const TaskCard = () => {
+type TaskProps = {
+    id: number, 
+    title: string,
+    status: number,
+}
+
+type TaskListProps = {
+    task: TaskProps,
+}
+
+const TaskCard = ({ task }: TaskListProps) => {
     return (
         <>
             <div className="bg-white p-2 shadow border border-gray-50 rounded-lg">
@@ -17,7 +27,7 @@ const TaskCard = () => {
 
                 <div className="py-1">
                     <p className="text-gray-500 font-semibold text-sm">
-                        Writing an Articles on AI Technology
+                        { task.title }
                     </p>
                     <p className="text-gray-500 font-light text-xs truncate">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam debitis animi qui cum eius suscipit aut neque! Suscipit, veritatis inventore. Excepturi illo facere rem corrupti neque blanditiis consectetur, nam culpa.
