@@ -24,7 +24,7 @@ const TaskGridList = ({ status, tasks } : TaskGridListProps) => {
     return (
         <>
             <div className="relative">
-                <div className="bg-gray-100 my-4 max-w-xs min-w-xs rounded p-1 max-h-[500px] overflow-y-scroll">
+                <div className="bg-gray-100 my-4 max-w-xs min-w-xs rounded p-1 py-4 max-h-[500px] overflow-y-scroll">
                     <div className="inline-flex items-center justify-between w-full p-2">
                         <p>
                             { status?.title }
