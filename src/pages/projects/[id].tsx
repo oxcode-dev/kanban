@@ -4,8 +4,13 @@ import TaskGridList from "@/components/tasks/TaskGridList";
 import TaskList from "@/components/tasks/TaskList";
 import DefaultLayout from "@/layout/default";
 import { taskStatus, tasks } from "@/data/tasks";
+import { useState } from "react";
 
 const ProjectTasks = () => {
+    const [allTasks, setAllTasks] = useState(tasks)
+    const handleDragEnd = () => {
+        
+    }
     const navItems = [
         'Overview', 'Tasks', 'Backlogs', 'Comments'
     ]
@@ -45,7 +50,7 @@ const ProjectTasks = () => {
                             {
                                 taskStatus.map((status, key) => (
                                     <div key={key}>
-                                        <TaskGridList tasks={tasks} status={status} />
+                                        <TaskGridList tasks={allTasks} status={status} />
                                     </div>
                                 ))
                             }
