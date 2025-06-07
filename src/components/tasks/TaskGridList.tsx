@@ -28,9 +28,9 @@ const TaskGridList = ({ status } : TaskGridListProps) => {
                     <div>
                         <div className="p-2 space-y-4">
                             {
-                                filteredTasks.map((item, key) => (
-                                    <div>
-                                        <TaskCard />
+                                filteredTasks.map((task, key) => (
+                                    <div key={key}>
+                                        <TaskCard task={task} />
                                     </div>
                                 ))
                             }
