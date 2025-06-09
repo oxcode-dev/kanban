@@ -1,5 +1,5 @@
 import supabase from "@/supabase.client";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 interface TaskType {
   title: string,
@@ -12,8 +12,10 @@ interface TaskType {
 export default function Home() {
   const [title, setTitle] = useState('')
   const [tasks, setTasks] = useState <TaskType[]>([])
+  const [selectedTask, setSelectedTask] = useState <TaskType | null>(null)
   const [description, setDescription] = useState('')
   const [isLoading, setIsLoading] = useState(false);
+  const titleRef = useRef(null)
 
   const getDateTime = (datetime: Date) => {
     const date = new Date(datetime);
@@ -54,6 +56,23 @@ export default function Home() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+
+    if(selectedTask?.id) {
+      return handleUpdateTask(selectedTask?.id)
+    }
+    return handleAddTask()
+  }
+
+  const handleClickEdit = (task: TaskType) =>{
+    //@ts-ignore
+    titleRef.current.focus()
+    setSelectedTask(task)
+    setDescription(task.description)
+    setTitle(task.title)
+  }
+
+  const handleAddTask = async () => {
+    
     if(description && title) {
 
       setIsLoading(true)
@@ -72,6 +91,39 @@ export default function Home() {
 
         setDescription('')
         setTitle('')
+        await fetchTasks()
+        return alert("Successfully sent!");
+
+      } catch (error) {
+        console.log("error sending message:", error);
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    return alert('Pls fill the form!!!')
+  }
+
+  const handleUpdateTask = async (id: string) => {
+    if(description && title) {
+
+      setIsLoading(true)
+      try {
+        const { error } = await supabase.from("examples").update([
+          {
+            title: title,
+            description: description,
+          },
+        ]).eq('id', id);
+  
+        if (error) {
+          console.error(error.message);
+          return;
+        }
+
+        setDescription('')
+        setTitle('')
+        setSelectedTask(null)
         await fetchTasks()
         return alert("Successfully sent!");
 
@@ -128,7 +180,7 @@ export default function Home() {
         <form onSubmit={e => handleSubmit(e)} className="space-y-4">
           <div>
             <label>Title</label>
-            <input value={title} onChange={e => setTitle(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
+            <input ref={titleRef} value={title} onChange={e => setTitle(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
           </div>
 
           <div>
@@ -157,11 +209,11 @@ export default function Home() {
                   <dd className="font-normal text-gray-400 text-sm">
                     <time>{getDateTime(task.created_at)}</time>
                   </dd>
-                  <div className="space-x-2">
-                    <button className="bg-red-600 text-white rounded p-2 px-4">
+                  <div className="space-x-2 pt-2">
+                    <button onClick={() => handleDeleteTask(task.id)} type="button" className="bg-red-600 text-white rounded p-1 px-3 cursor-pointer">
                       Delete
                     </button>
-                    <button className="bg-white text-gray-500 rounded p-2 px-4">
+                    <button onClick={() => handleClickEdit(task)} type="button" className="bg-white text-gray-500 rounded p-1 px-3 border cursor-pointer">
                       Edit
                     </button>
                   </div>
