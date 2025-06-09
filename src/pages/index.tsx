@@ -1,24 +1,49 @@
 import supabase from "@/supabase.client";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+
+interface TaskType {
+  title: string,
+  description: string,
+  created_at: Date,
+  // created_at: string,
+  id: string,
+}
 
 export default function Home() {
   const [title, setTitle] = useState('')
+  const [tasks, setTasks] = useState <TaskType[]>([])
   const [description, setDescription] = useState('')
   const [isLoading, setIsLoading] = useState(false);
+
+  const getDateTime = (datetime: Date) => {
+    const date = new Date(datetime);
+
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      // timeZoneName: 'short',
+    });
+
+    return formatter.format(date);
+  }
 
   const fetchTasks = async () => {
     try{
       const { error, data } = await supabase
         .from("examples")
         .select('*')
-        .order('created_at', {ascending: true})
+        .order('created_at', {ascending: false})
 
       if (error) {
         console.error(error.message);
         return;
       }
 
-      console.log(data)
+      setTasks(data)
     }
     catch (error) {
       console.log("error sending message:", error);
@@ -26,6 +51,10 @@ export default function Home() {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    fetchTasks()
+  })
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(description && title) {
@@ -46,6 +75,7 @@ export default function Home() {
 
         setDescription('')
         setTitle('')
+        await fetchTasks()
         return alert("Successfully sent!");
 
       } catch (error) {
@@ -86,12 +116,17 @@ export default function Home() {
 
         <div className="py-8">
           <div className="space-y-4">
-            { [1, 2, 3, 4, 5].map((number, key) => (
-              <dl>
+            { tasks.map((task) => (
+              <dl key={task.id}>
                 <div className="border border-gray-300 rounded p-4">
-                  <dt className="text-lg font-bold text-gray-700">Title</dt>
+                  <dt className="text-lg font-bold text-gray-700">
+                    { task.title }
+                  </dt>
                   <dd className="font-normal text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci totam esse minus voluptate soluta sit aspernatur atque voluptatem? Cupiditate odit laboriosam facilis modi, aperiam aut enim possimus numquam eveniet neque?
+                    {task.description}
+                  </dd>
+                  <dd className="font-normal text-gray-400 text-sm">
+                    <time>{getDateTime(task.created_at)}</time>
                   </dd>
                 </div>
               </dl>
