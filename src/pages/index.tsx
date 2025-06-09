@@ -1,13 +1,34 @@
+import supabase from "@/supabase.client";
 import { FormEvent, useState } from "react";
 
 export default function Home() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(description && title) {
-      return alert(description)
+      // return alert(description)
+      setIsLoading(true)
+      try {
+        const { error } = await supabase.from("examples").insert([
+          {
+            title: title,
+            description: description,
+          },
+        ]);
+  
+        if (error) {
+          console.error(error.message);
+          return;
+        }
+        alert("Sucsessfully sent!");
+      } catch (error) {
+        console.log("error sending message:", error);
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     return alert('Pls fill the form!!!')
