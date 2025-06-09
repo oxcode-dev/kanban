@@ -23,10 +23,11 @@ export default function Home() {
           console.error(error.message);
           return;
         }
-        
+
         setDescription('')
         setTitle('')
-        return alert("Sucsessfully sent!");
+        return alert("Successfully sent!");
+
       } catch (error) {
         console.log("error sending message:", error);
       } finally {
@@ -48,12 +49,12 @@ export default function Home() {
         <form onSubmit={e => handleSubmit(e)} className="space-y-4">
           <div>
             <label>Title</label>
-            <input onChange={e => setTitle(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
+            <input value={title} onChange={e => setTitle(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
           </div>
 
           <div>
             <label>Description</label>
-            <textarea onChange={e => setDescription(e.target.value)} rows={5} className="rounded border flex h-20 w-full border-gray-300 px-2 py-1 text-gray-600"></textarea>
+            <textarea value={description} onChange={e => setDescription(e.target.value)} rows={5} className="rounded border flex h-20 w-full border-gray-300 px-2 py-1 text-gray-600"></textarea>
           </div>
 
           <div>
