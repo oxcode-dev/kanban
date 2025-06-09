@@ -6,7 +6,11 @@ export default function Home() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    alert(description)
+    if(description && title) {
+      return alert(description)
+    }
+
+    return alert('Pls fill the form!!!')
   }
 
   return (
