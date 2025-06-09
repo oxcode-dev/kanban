@@ -1,9 +1,12 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 export default function Home() {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    alert('Hello World')
+    alert(description)
   }
 
   return (
@@ -17,12 +20,12 @@ export default function Home() {
         <form onSubmit={e => handleSubmit(e)} className="space-y-4">
           <div>
             <label>Title</label>
-            <input type="text" className="rounded border flex h-10 w-full border-gray-300" />
+            <input onChange={e => setTitle(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
           </div>
 
           <div>
             <label>Description</label>
-            <textarea rows={5} className="rounded border flex h-20 w-full border-gray-300"></textarea>
+            <textarea onChange={e => setDescription(e.target.value)} rows={5} className="rounded border flex h-20 w-full border-gray-300 px-2 py-1 text-gray-600"></textarea>
           </div>
 
           <div>
