@@ -1,5 +1,11 @@
+import { FormEvent } from "react";
 
 export default function Home() {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    alert('Hello World')
+  }
+
   return (
     <div
       className={`flex flex-col items-center py-10 min-h-screen max-w-xl mx-auto`}
@@ -8,7 +14,7 @@ export default function Home() {
         <div>
           <h2 className="pb-4 font-semibold text-3xl">Tasks</h2>
         </div>
-        <form className="space-y-4">
+        <form onSubmit={e => handleSubmit(e)} className="space-y-4">
           <div>
             <label>Title</label>
             <input type="text" className="rounded border flex h-10 w-full border-gray-300" />
@@ -26,7 +32,7 @@ export default function Home() {
           </div>
         </form>
 
-        <div className="my-4">
+        <div className="py-8">
           <div className="space-y-4">
             { [1, 2, 3, 4, 5].map((number, key) => (
               <dl>
