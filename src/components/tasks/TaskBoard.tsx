@@ -1,3 +1,8 @@
+import { TaskProps, taskStatus, tasks } from "@/data/tasks"
+import { DndContext, DragEndEvent } from "@dnd-kit/core"
+import { useState } from "react"
+import TaskGridList from "./TaskGridList"
+
 const TaskBoard = () => {
     const [allTasks, setAllTasks] = useState(tasks)
     const handleDragEnd = (event: DragEndEvent) => {
