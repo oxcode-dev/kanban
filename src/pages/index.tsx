@@ -6,6 +6,26 @@ export default function Home() {
   const [description, setDescription] = useState('')
   const [isLoading, setIsLoading] = useState(false);
 
+  const fetchTasks = async () => {
+    try{
+      const { error, data } = await supabase
+        .from("examples")
+        .select('*')
+        .order('created_at', {ascending: true})
+
+      if (error) {
+        console.error(error.message);
+        return;
+      }
+
+      console.log(data)
+    }
+    catch (error) {
+      console.log("error sending message:", error);
+    } finally {
+      setIsLoading(false)
+    }
+  }
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(description && title) {
