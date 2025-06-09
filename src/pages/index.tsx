@@ -52,9 +52,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    fetchTasks()
-  })
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(description && title) {
@@ -87,6 +84,38 @@ export default function Home() {
 
     return alert('Pls fill the form!!!')
   }
+
+
+  const handleDeleteTask = async (id: string) => {
+    if(confirm('Are you sure, you wanted to deleted this task')) {
+
+      if(!id) {
+        return alert('Select a task')
+      }
+
+      try {
+        const { error } = await supabase.from("examples").delete().eq('id', id);
+  
+        if (error) {
+          console.error(error.message);
+          return;
+        }
+
+        await fetchTasks()
+        return alert("Successfully sent!");
+
+      } catch (error) {
+        console.log("error sending message:", error);
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }
+
+
+  useEffect(() => {
+    fetchTasks()
+  }, [])
 
   return (
     <div
@@ -128,6 +157,15 @@ export default function Home() {
                   <dd className="font-normal text-gray-400 text-sm">
                     <time>{getDateTime(task.created_at)}</time>
                   </dd>
+                  <div className="space-x-2">
+                    <button className="bg-red-600 text-white rounded p-2 px-4">
+                      Delete
+                    </button>
+                    <button className="bg-white text-gray-500 rounded p-2 px-4">
+                      Edit
+                    </button>
+                  </div>
+
                 </div>
               </dl>
             ))}
