@@ -9,7 +9,7 @@ export default function Home() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(description && title) {
-      // return alert(description)
+
       setIsLoading(true)
       try {
         const { error } = await supabase.from("examples").insert([
@@ -17,7 +17,7 @@ export default function Home() {
             title: title,
             description: description,
           },
-        ]);
+        ]).single();
   
         if (error) {
           console.error(error.message);
