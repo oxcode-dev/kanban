@@ -23,7 +23,7 @@ export default function Home() {
           console.error(error.message);
           return;
         }
-        alert("Sucsessfully sent!");
+        return alert("Sucsessfully sent!");
       } catch (error) {
         console.log("error sending message:", error);
       } finally {
@@ -54,8 +54,8 @@ export default function Home() {
           </div>
 
           <div>
-            <button type="submit" className="bg-blue-600 text-white rounded p-2 px-4">
-              Submit
+            <button disabled={isLoading} type="submit" className="bg-blue-600 text-white rounded p-2 px-4">
+              { isLoading ? 'Loading...' : 'Submit'}
             </button>
           </div>
         </form>
