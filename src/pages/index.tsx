@@ -23,6 +23,9 @@ export default function Home() {
           console.error(error.message);
           return;
         }
+        
+        setDescription('')
+        setTitle('')
         return alert("Sucsessfully sent!");
       } catch (error) {
         console.log("error sending message:", error);
