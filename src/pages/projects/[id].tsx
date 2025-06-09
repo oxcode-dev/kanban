@@ -9,19 +9,6 @@ import TaskNav from "@/components/tasks/TaskNav";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
 
 const ProjectTasks = () => {
-    const [allTasks, setAllTasks] = useState(tasks)
-    const handleDragEnd = (event: DragEndEvent) => {
-        const { active, over } = event
-
-        if(!over) return 
-
-        const taskId = active.id as number
-        const newStatus = over.id as TaskProps['status']
-
-        setAllTasks(() => allTasks.map((task) => task.id === taskId ? {
-            ...task, status: newStatus
-        } : task))
-    }
    
     return (
         <>
