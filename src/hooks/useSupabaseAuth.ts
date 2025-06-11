@@ -2,7 +2,7 @@ import supabase from "@/supabase.client";
 import { useState } from "react";
 // import router from "../router";
 
-export const useFirebaseAuth = () => {
+export const useSupabaseAuth = () => {
     // const user = auth.currentUser;
     // const authStore = useAuthStore()
     const [isLoading, setIsLoading] = useState(false)
@@ -28,7 +28,7 @@ export const useFirebaseAuth = () => {
             })
             setIsLoading(false)
 
-            console.log(data, error)
+            console.log(error)
 
             // authStore.saveAuthUser(result.user)
             // router.push('/')

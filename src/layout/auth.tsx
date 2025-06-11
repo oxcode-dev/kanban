@@ -6,7 +6,7 @@ type AuthLayoutProps = {
 const AuthLayout = ({ children } : AuthLayoutProps) => {
     return (
         <>
-            <div className="flex w-full justify-center h-screen bg-gray-200 py-8">
+            <div className="flex w-full justify-center min-h-screen bg-gray-200 py-8">
                 <div className="border border-slate-200 shadow bg-white min-w-lg rounded-lg p-4">
                     <div className="p-4 sm:px-8 flex flex-col">
                         <div className="pb-8 pt-4">

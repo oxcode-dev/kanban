@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
+import { FormEvent, useState } from "react";
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const { handleSignIn } = useSupabaseAuth()
+
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault()
+    
+        handleSignIn(email, password)
+        
+    }
+
     return (
         <>
-            <form className="space-y-3">
+            <form onSubmit={e => handleSubmit(e)} className="space-y-3">
                 <div className="relative">
                     <label className="">Email</label>
-                    <input type="text" value={email} onChange={e => setEmail(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
                 </div>
                 <div className="py-1">
                     <label>Password</label>
