@@ -1,3 +1,5 @@
+import LoginForm from "@/forms/auth/LoginForm";
+
 const AuthPage = () => {
     return (
         <>
@@ -8,7 +10,6 @@ const AuthPage = () => {
                             <h2 className="font-bold text-3xl text-blue-600 drop-shadow">Kanban</h2>
                         </div>
 
-                        {/* Login */}
                         <div>
                             <div className="py-4 pb-6 space-y-1">
                                 <p className="text-base text-gray-500 font-medium">
@@ -20,7 +21,7 @@ const AuthPage = () => {
                             </div>
 
                             <div>
-                                
+                                <LoginForm></LoginForm>
                             </div>
                         </div>
                     </div>
