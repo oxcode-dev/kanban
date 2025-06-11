@@ -23,12 +23,14 @@ export const useSupabaseAuth = () => {
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
-                email: 'valid.email@supabase.io',
-                password: 'example-password',
+                email: email,
+                password: password,
             })
             setIsLoading(false)
 
-            console.log(error)
+            return { data, error }
+
+            // console.log(error?.message, data)
 
             // authStore.saveAuthUser(result.user)
             // router.push('/')

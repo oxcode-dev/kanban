@@ -10,8 +10,10 @@ const LoginForm = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
     
-        handleSignIn(email, password)
-        
+        //@ts-ignore
+        const { data, error } = await handleSignIn(email, password)
+
+        console.log(error?.message, data)
     }
 
     return (
@@ -19,11 +21,11 @@ const LoginForm = () => {
             <form onSubmit={e => handleSubmit(e)} className="space-y-3">
                 <div className="relative">
                     <label className="">Email</label>
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
+                    <input required type="email" value={email} onChange={e => setEmail(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
                 </div>
                 <div className="py-1">
                     <label>Password</label>
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
+                    <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="focus:outline-none border border-gray-300 shadow p-2 w-full rounded" />
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
@@ -33,7 +35,7 @@ const LoginForm = () => {
                     <a href="#">forgot password</a>
                 </div>
                 <div className="pt-5">
-                    <button className="bg-blue-600 text-white w-full p-2 text-lg rounded">
+                    <button type="submit" className="bg-blue-600 text-white w-full p-2 text-lg rounded cursor-pointer">
                         Login
                     </button>
                 </div>
