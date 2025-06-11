@@ -19,7 +19,6 @@ export const useSupabaseAuth = () => {
 
     const handleSignIn = async (email: string, password: string) => {
         setIsLoading(true)
-        let result = null
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
@@ -29,11 +28,6 @@ export const useSupabaseAuth = () => {
             setIsLoading(false)
 
             return { data, error }
-
-            // console.log(error?.message, data)
-
-            // authStore.saveAuthUser(result.user)
-            // router.push('/')
         } catch (error) {
             // setError(errorResponse(e.code));
             console.log(error)
@@ -41,20 +35,20 @@ export const useSupabaseAuth = () => {
         }
     }
 
-    // const handleSignUp = async (email, password) => {
-    //     setIsLoading(true)
-    //     let result = null
+    const handleSignUp = async (email: string, password: string) => {
+        setIsLoading(true)
 
-    //     try {
-    //         result = await createUserWithEmailAndPassword(auth, email, password);
-    //         setIsLoading(false)
-    //         authStore.saveAuthUser(result.user)
-    //         router.push('/')
-    //     } catch (e) {
-    //         setError(errorResponse(e.code));
-    //         setIsLoading(false)
-    //     }
-    // }
+        try {
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+            })
+            console.log({ data, error })
+        } catch (e) {
+            // setError(errorResponse(e.code));
+            setIsLoading(false)
+        }
+    }
 
     // const handleChangePassword = (password) => {
     //     setIsLoading(true)
@@ -105,7 +99,7 @@ export const useSupabaseAuth = () => {
     // }
 
     return { 
-        handleSignIn,
+        handleSignIn, handleSignUp,
 
         // handleSignUp, handleSignIn, handleSignOut, handleChangePassword, 
         // handleUpdateUserEmail, handleDeleteUser, isLoading, error 
