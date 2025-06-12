@@ -4,9 +4,6 @@ import { useState } from "react";
 
 export const useSupabaseAuth = () => {
     // const user = auth.currentUser;
-    // const authStore = useAuthStore()
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('')
     
     // const handleSignOut = async() => {
     //     await signOut(auth).then(() => {
@@ -18,25 +15,20 @@ export const useSupabaseAuth = () => {
     // }
 
     const handleSignIn = async (email: string, password: string) => {
-        setIsLoading(true)
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
                 password: password,
             })
-            setIsLoading(false)
 
             return { data, error }
         } catch (error) {
-            // setError(errorResponse(e.code));
             console.log(error)
-            setIsLoading(false)
         }
     }
 
     const handleSignUp = async (email: string, password: string) => {
-        setIsLoading(true)
 
         try {
             const { error } = await supabase.auth.signUp({
@@ -45,8 +37,8 @@ export const useSupabaseAuth = () => {
             })
 
             return { error }
-        } catch (e) {
-            setIsLoading(false)
+        } catch (error) {
+            console.error(error)
         }
     }
 
