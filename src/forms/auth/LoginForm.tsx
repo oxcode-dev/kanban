@@ -11,8 +11,9 @@ const LoginForm = () => {
         e.preventDefault()
     
         //@ts-ignore
-        // const { data, error } = await handleSignIn(email, password)
-        const { data, error } = await handleSignUp(email, password)
+        const { data, error } = await handleSignIn(email, password)
+        // zagarygeve@mailinator.com
+        // const { data, error } = await handleSignUp(email, password)
 
         console.log(error?.message, data)
     }
