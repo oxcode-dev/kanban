@@ -1,10 +1,20 @@
 import LoginForm from "@/forms/auth/LoginForm";
 import SignUpForm from "@/forms/auth/SignUpForm";
 import AuthLayout from "@/layout/auth";
-import { useState } from "react";
+import supabase from "@/supabase.client";
+import { useEffect, useState } from "react";
 
 const AuthPage = () => {
     const [isLoginActive, setIsLoginActive] =  useState(true)
+
+    const fetchUser = async () => {
+        const currentSession = await supabase.auth.getSession()
+
+        console.log(currentSession)
+    }
+    useEffect(() => {
+        fetchUser()
+    })
     return (
         <>
             <AuthLayout>

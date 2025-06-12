@@ -8,6 +8,15 @@
 //         setIsAuth(!isAuth)
 //     }
 
+    // const fetchUser = async () => {
+    //     const currentSession = await supabase.auth.getSession()
+
+    //     console.log(currentSession)
+    // }
+    // useEffect(() => {
+    //     fetchUser()
+    // })
+
 //     return(
 //         <div>
 //             <AuthContext.Provider value={{ isAuth, toggleAuth }}>
