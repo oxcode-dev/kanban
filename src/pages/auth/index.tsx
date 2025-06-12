@@ -1,4 +1,5 @@
 import LoginForm from "@/forms/auth/LoginForm";
+import SignUpForm from "@/forms/auth/SignUpForm";
 import AuthLayout from "@/layout/auth";
 import { useState } from "react";
 
@@ -23,7 +24,9 @@ const AuthPage = () => {
                             {
                                 isLoginActive ? (
                                     <LoginForm />
-                                ) : null
+                                ) : (
+                                    <SignUpForm />
+                                )
                             }
                         </div>
 
@@ -37,7 +40,16 @@ const AuthPage = () => {
                                         Sign up
                                     </a>
                                 </div>
-                            ): null
+                            ): (
+                                <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium pt-4">
+                                    <span>
+                                        Already have an account?
+                                    </span>
+                                    <a href="#" className="text-blue-600 underline">
+                                        Login
+                                    </a>
+                                </div>
+                            )
                         }
                     </div>
                    

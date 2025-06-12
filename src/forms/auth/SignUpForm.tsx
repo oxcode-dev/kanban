@@ -1,7 +1,7 @@
 import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
 import { FormEvent, useState } from "react";
 
-const LoginForm = () => {
+const SignUpForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -40,18 +40,9 @@ const LoginForm = () => {
                         { isLoading ? 'Loading...' : 'Sign Up'}
                     </button>
                 </div>
-
-                <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium">
-                    <span>
-                        Don't have an account?
-                    </span>
-                    <a href="#" className="text-blue-600 underline">
-                        Sign up
-                    </a>
-                </div>
             </form>
         </>
     )
 }
 
-export default LoginForm;
+export default SignUpForm;
