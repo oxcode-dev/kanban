@@ -45,6 +45,7 @@ export default function Home() {
         return;
       }
 
+      console.error(data);
       setTasks(data)
     }
     catch (error) {
