@@ -5,13 +5,14 @@ const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const { handleSignIn } = useSupabaseAuth()
+    const { handleSignIn, handleSignUp } = useSupabaseAuth()
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
     
         //@ts-ignore
-        const { data, error } = await handleSignIn(email, password)
+        // const { data, error } = await handleSignIn(email, password)
+        const { data, error } = await handleSignUp(email, password)
 
         console.log(error?.message, data)
     }
