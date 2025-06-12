@@ -8,7 +8,7 @@ const AuthPage = () => {
     const [isLoginActive, setIsLoginActive] =  useState(true)
 
     const fetchUser = async () => {
-        const currentSession = await supabase.auth.getSession()
+        const currentSession = await supabase.auth.getUser()
 
         console.log(currentSession)
     }
