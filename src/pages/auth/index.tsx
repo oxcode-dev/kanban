@@ -30,27 +30,14 @@ const AuthPage = () => {
                             }
                         </div>
 
-                        {
-                            isLoginActive ? (
-                                <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium pt-4">
-                                    <span>
-                                        Don't have an account?
-                                    </span>
-                                    <a href="#" className="text-blue-600 underline">
-                                        Sign up
-                                    </a>
-                                </div>
-                            ): (
-                                <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium pt-4">
-                                    <span>
-                                        Already have an account?
-                                    </span>
-                                    <a href="#" className="text-blue-600 underline">
-                                        Login
-                                    </a>
-                                </div>
-                            )
-                        }
+                        <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium pt-4">
+                            <span>
+                                { isLoginActive ? `Don't have an account?` : 'Already have an account?'}
+                            </span>
+                            <a onClick={() => setIsLoginActive(!isLoginActive)} href="#" className="text-blue-600 underline">
+                                { isLoginActive ? `Sign up` : 'Login'}
+                            </a>
+                        </div>
                     </div>
                    
             </AuthLayout>
