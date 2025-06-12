@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const { handleSignUp } = useSupabaseAuth()
 
@@ -35,8 +36,8 @@ const LoginForm = () => {
                     <a href="#">forgot password</a>
                 </div>
                 <div className="pt-5">
-                    <button type="submit" className="bg-blue-600 text-white w-full p-2 text-lg rounded cursor-pointer">
-                        Login
+                    <button disabled={isLoading} type="submit" className="bg-blue-600 text-white w-full p-2 text-lg rounded cursor-pointer">
+                        { isLoading ? 'Loading...' : 'Sign Up'}
                     </button>
                 </div>
 

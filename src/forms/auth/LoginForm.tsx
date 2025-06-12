@@ -4,16 +4,25 @@ import { FormEvent, useState } from "react";
 const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const { handleSignIn } = useSupabaseAuth()
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        setIsLoading(true)
     
         //@ts-ignore
         const { data, error } = await handleSignIn(email, password)
 
-        console.log(error?.message, data)
+        if(error) {
+            alert(error.message)
+            setIsLoading(false)
+            return
+        }
+
+        console.log(data)
+        setIsLoading(false)
     }
 
     return (
@@ -35,8 +44,8 @@ const LoginForm = () => {
                     <a href="#">forgot password</a>
                 </div>
                 <div className="pt-5">
-                    <button type="submit" className="bg-blue-600 text-white w-full p-2 text-lg rounded cursor-pointer">
-                        Login
+                    <button disabled={isLoading} type="submit" className="bg-blue-600 text-white w-full p-2 text-lg rounded cursor-pointer">
+                        { isLoading ? 'Loading...' : 'Login'}
                     </button>
                 </div>
 
