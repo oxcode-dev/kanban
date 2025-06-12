@@ -1,7 +1,9 @@
 import LoginForm from "@/forms/auth/LoginForm";
 import AuthLayout from "@/layout/auth";
+import { useState } from "react";
 
 const AuthPage = () => {
+    const [isLoginActive, setIsLoginActive] =  useState(true)
     return (
         <>
             <AuthLayout>
@@ -18,7 +20,11 @@ const AuthPage = () => {
                         </div>
 
                         <div>
-                            <LoginForm></LoginForm>
+                            {
+                                isLoginActive ? (
+                                    <LoginForm />
+                                ) : null
+                            }
                         </div>
                     </div>
                    

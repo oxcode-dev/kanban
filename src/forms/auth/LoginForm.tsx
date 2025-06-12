@@ -48,15 +48,6 @@ const LoginForm = () => {
                         { isLoading ? 'Loading...' : 'Login'}
                     </button>
                 </div>
-
-                <div className="inline-flex space-x-2 justify-center w-full text-gray-500 font-medium">
-                    <span>
-                        Don't have an account?
-                    </span>
-                    <a href="#" className="text-blue-600 underline">
-                        Sign up
-                    </a>
-                </div>
             </form>
         </>
     )
