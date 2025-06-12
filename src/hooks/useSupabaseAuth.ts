@@ -39,13 +39,13 @@ export const useSupabaseAuth = () => {
         setIsLoading(true)
 
         try {
-            const { data, error } = await supabase.auth.signUp({
+            const { error } = await supabase.auth.signUp({
                 email: email,
                 password: password,
             })
-            console.log({ data, error })
+
+            return { error }
         } catch (e) {
-            // setError(errorResponse(e.code));
             setIsLoading(false)
         }
     }
