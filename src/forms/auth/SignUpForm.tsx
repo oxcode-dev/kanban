@@ -10,11 +10,23 @@ const SignUpForm = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        setIsLoading(true)
     
-        //@ts-ignore
+        // @ts-ignore
         const { error } = await handleSignUp(email, password)
 
-        console.log(error?.message)
+        // console.log(error?.message)
+        if(error) {
+            alert(error.message)
+            setIsLoading(false)
+            return
+        }
+
+        alert('Check your email for confirmation!!!')
+        setIsLoading(false)
+        setEmail('')
+        setPassword('')
+        location.reload()
     }
 
     return (
