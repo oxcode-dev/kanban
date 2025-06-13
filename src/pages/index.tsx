@@ -1,3 +1,4 @@
+'use client'
 import supabase from "@/supabase.client";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
