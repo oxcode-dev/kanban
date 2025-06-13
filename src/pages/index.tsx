@@ -182,13 +182,13 @@ export default function Home() {
         </div>
         <form onSubmit={event => handleSubmit(event)} className="space-y-4">
           <div>
-            <label>Title</label>
-            <input ref={titleRef} value={title} onChange={e => console.log(e.target.value)} type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
+            <label htmlFor="title">Title</label>
+            <input ref={titleRef} value={title} onChange={e => setTitle(e.target.value)} id="title" type="text" className="rounded border flex h-10 w-full border-gray-300 px-2 py-1 text-gray-600" />
           </div>
 
           <div>
-            <label>Description</label>
-            <textarea value={description} onChange={e => setDescription(e.target.value)} rows={5} className="rounded border flex h-20 w-full border-gray-300 px-2 py-1 text-gray-600"></textarea>
+            <label htmlFor="description">Description</label>
+            <textarea value={description} onChange={e => setDescription(e.target.value)} id="description" rows={5} className="rounded border flex h-20 w-full border-gray-300 px-2 py-1 text-gray-600"></textarea>
           </div>
 
           <div>
