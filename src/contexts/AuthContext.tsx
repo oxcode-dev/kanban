@@ -1,8 +1,11 @@
 import supabase from "@/supabase.client";
 import { createContext, useEffect, useState } from "react";
 
-const AuthContext = createContext(false)
-type AuthContextType = {}
+type AuthContextType = {
+    isAuth: boolean
+}
+
+const AuthContext = createContext<AuthContextType | null>(null)
 
 const AuthProvider = (children: React.ReactNode) => {
     const [isAuth, setIsAuth] = useState(true)
