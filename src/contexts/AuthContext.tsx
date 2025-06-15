@@ -28,7 +28,7 @@ const AuthProvider = (children: React.ReactNode) => {
             // go to login page
         }
 
-        return 
+        return alert(error?.message)
     }
     useEffect(() => {
         fetchUser()
