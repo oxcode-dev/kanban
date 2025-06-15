@@ -41,13 +41,14 @@ export default function Home() {
         .from("examples")
         .select('*')
         .order('created_at', {ascending: false})
+        // .eq('id', '26ae1fd4-d353-4505-9cf4-38e6f2e03149')
 
       if (error) {
         console.error(error.message);
         return;
       }
 
-      console.error(data);
+      console.log(data);
       setTasks(data)
     }
     catch (error) {
