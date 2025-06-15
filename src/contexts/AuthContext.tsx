@@ -16,9 +16,19 @@ const AuthProvider = (children: React.ReactNode) => {
     const fetchUser = async () => {
         const currentSession = await supabase.auth.getSession()
 
-        
+        const { error, data } = await supabase
+            .from("users")
+            .select('*')
+            .eq('id', currentSession?.data?.session?.user.id)
 
-        console.log(currentSession)
+        if (error) {
+            console.error(error.message);
+            return;
+        }
+
+        setAuth
+
+        console.log(currentSession, currentSession?.data?.session?.user.id, data)
     }
 
     const logoutUser = async() => {

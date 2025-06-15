@@ -10,7 +10,18 @@ const AuthPage = () => {
     const fetchUser = async () => {
         const currentSession = await supabase.auth.getUser()
 
-        console.log(currentSession)
+        const { error, data } = await supabase
+            .from("users")
+            .select('*')
+            .eq('id', currentSession?.data?.user?.id)
+
+        // if (error) {
+        //     console.error(error.message);
+        //     return;
+        // }
+
+        console.log(currentSession, currentSession?.data?.user?.id, data, error)
+
     }
     useEffect(() => {
         fetchUser()
