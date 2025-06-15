@@ -24,12 +24,12 @@ const AuthProvider = (children: React.ReactNode) => {
 
         if (error) {
             console.error(error.message);
+            logoutUser()
             return;
         }
 
         setAuth(currentSession?.data?.user || null)
         setUser(data)
-
     }
 
     const logoutUser = async() => {
@@ -37,6 +37,7 @@ const AuthProvider = (children: React.ReactNode) => {
 
         if(!error) {
             // go to login page
+            setAuth(null)
             setUser(null)
         }
 
