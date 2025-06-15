@@ -23,6 +23,12 @@ const AuthProvider = (children: React.ReactNode) => {
 
     const logoutUser = async() => {
         const { error } = await supabase.auth.signOut()
+
+        if(!error) {
+            // go to login page
+        }
+
+        return 
     }
     useEffect(() => {
         fetchUser()
