@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 type AuthContextType = {
     isAuth: boolean,
     user: any,
+    logoutUser: () => void,
 }
 
 const AuthContext = createContext<AuthContextType | null>(null)
@@ -28,7 +29,7 @@ const AuthProvider = (children: React.ReactNode) => {
             // go to login page
         }
 
-        return alert(error?.message)
+        alert(error?.message)
     }
     useEffect(() => {
         fetchUser()
@@ -36,7 +37,7 @@ const AuthProvider = (children: React.ReactNode) => {
 
     return (
         <div>
-            <AuthContext.Provider value={{ isAuth, user }}>
+            <AuthContext.Provider value={{ isAuth, user, logoutUser }}>
                 {children}
             </AuthContext.Provider>
         </div>
