@@ -7,25 +7,25 @@ import { useEffect, useState } from "react";
 const AuthPage = () => {
     const [isLoginActive, setIsLoginActive] =  useState(true)
 
-    const fetchUser = async () => {
-        const currentSession = await supabase.auth.getUser()
+    // const fetchUser = async () => {
+    //     const currentSession = await supabase.auth.getUser()
 
-        const { error, data } = await supabase
-            .from("users")
-            .select('*')
-            .eq('id', currentSession?.data?.user?.id)
+    //     const { error, data } = await supabase
+    //         .from("users")
+    //         .select('*')
+    //         .eq('id', currentSession?.data?.user?.id)
 
-        // if (error) {
-        //     console.error(error.message);
-        //     return;
-        // }
+    //     // if (error) {
+    //     //     console.error(error.message);
+    //     //     return;
+    //     // }
 
-        console.log(currentSession, currentSession?.data?.user?.id, data, error)
+    //     console.log(currentSession, currentSession?.data?.user?.id, data, error)
 
-    }
-    useEffect(() => {
-        fetchUser()
-    })
+    // }
+    // useEffect(() => {
+    //     fetchUser()
+    // })
     return (
         <>
             <AuthLayout>
