@@ -1,8 +1,8 @@
 import supabase from "@/supabase.client";
 import { createContext, useEffect, useState } from "react";
 
-type AuthContextType = {
-    auth: boolean,
+export type AuthContextType = {
+    auth: any,
     user: any,
     logoutUser: () => void,
 }
@@ -52,11 +52,9 @@ const AuthProvider = ({ children } : AuthProviderType) => {
     }, []);
 
     return (
-        <div>
-            <AuthContext.Provider value={{ auth, user, logoutUser }}>
-                {children}
-            </AuthContext.Provider>
-        </div>
+        <AuthContext.Provider value={{ auth, user, logoutUser }}>
+            {children}
+        </AuthContext.Provider>
     );
 }
 
