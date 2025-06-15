@@ -2,7 +2,6 @@ import supabase from "@/supabase.client";
 import { createContext, useEffect, useState } from "react";
 
 type AuthContextType = {
-    isAuth: boolean,
     user: any,
     logoutUser: () => void,
 }
@@ -10,11 +9,7 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null)
 
 const AuthProvider = (children: React.ReactNode) => {
-    const [isAuth, setIsAuth] = useState(true)
-    const [user, setUser] = useState()
-    const toggleAuth = () => {
-        setIsAuth(!isAuth)
-    }
+    const [user, setUser] = useState<any>()
 
     const fetchUser = async () => {
         const currentSession = await supabase.auth.getSession()
@@ -27,6 +22,7 @@ const AuthProvider = (children: React.ReactNode) => {
 
         if(!error) {
             // go to login page
+            setUser(null)
         }
 
         alert(error?.message)
@@ -37,7 +33,7 @@ const AuthProvider = (children: React.ReactNode) => {
 
     return (
         <div>
-            <AuthContext.Provider value={{ isAuth, user, logoutUser }}>
+            <AuthContext.Provider value={{ user, logoutUser }}>
                 {children}
             </AuthContext.Provider>
         </div>
