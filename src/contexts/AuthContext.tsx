@@ -1,3 +1,4 @@
+import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
 import supabase from "@/supabase.client";
 import { createContext, useEffect, useState } from "react";
 
@@ -16,6 +17,7 @@ const AuthContext = createContext<AuthContextType | null>(null)
 const AuthProvider = ({ children } : AuthProviderType) => {
     const [user, setUser] = useState<any>()
     const [auth, setAuth] = useState<any>()
+    const { handleSignOut } = useSupabaseAuth()
 
     const fetchUser = async () => {
         // const currentSession = await supabase.auth.getSession()
@@ -37,7 +39,8 @@ const AuthProvider = ({ children } : AuthProviderType) => {
     }
 
     const logoutUser = async() => {
-        const { error } = await supabase.auth.signOut()
+        const { error } = await handleSignOut()
+        // const { error } = await supabase.auth.signOut()
 
         if(!error) {
             // go to login page

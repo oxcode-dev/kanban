@@ -1,4 +1,5 @@
 import supabase from "@/supabase.client";
+import { AuthError } from "@supabase/supabase-js";
 import { useState } from "react";
 // import router from "../router";
 
