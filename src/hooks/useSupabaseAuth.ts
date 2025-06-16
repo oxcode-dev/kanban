@@ -5,14 +5,11 @@ import { useState } from "react";
 export const useSupabaseAuth = () => {
     // const user = auth.currentUser;
     
-    // const handleSignOut = async() => {
-    //     await signOut(auth).then(() => {
-    //         authStore.clearAuthUser()    
-    //         location.href = '/auth'
-    //     }).catch((error) => {
-    //         console.log(errorResponse(error.code))
-    //     });
-    // }
+    const handleSignOut = async() => {
+        const { error } = await supabase.auth.signOut()
+
+        return { error }
+    }
 
     const handleSignIn = async (email: string, password: string) => {
 
