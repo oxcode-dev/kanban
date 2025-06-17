@@ -64,4 +64,3 @@ const AuthProvider = ({ children } : AuthProviderType) => {
 export {AuthContext, AuthProvider};
 
 
-
