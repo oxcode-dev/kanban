@@ -26,12 +26,15 @@ export const useSupabaseAuth = () => {
         }
     }
 
-    const handleSignUp = async (email: string, password: string) => {
+    const handleSignUp = async (email: string, password: string, url: string | undefined) => {
 
         try {
             const { error } = await supabase.auth.signUp({
                 email: email,
                 password: password,
+                options: {
+                    emailRedirectTo: url,
+                },
             })
 
             return { error }
@@ -40,23 +43,16 @@ export const useSupabaseAuth = () => {
         }
     }
 
-    // const handleChangePassword = (password) => {
-    //     setIsLoading(true)
+    const handleChangePassword = async (password: string) => {
 
-    //     updatePassword(user, password).then(() => {
-    //         setIsLoading(false)
-    //         alert('Password Updated Successfully!!!')
-    //     })
-    //     .catch((error) => {
-    //         setIsLoading(false)
-    //         if(error.code === 'auth/requires-recent-login') {
-    //             alert(errorResponse(error.code))
-    //             handleSignOut()
-    //         }
+        const {error} = await supabase.auth.updateUser({ password: 'new_password' })
 
-    //         console.log(errorResponse(error.code))
-    //     });
-    // }
+        if(error) {
+            return error//.message
+        }
+        alert('Password Updated Successfully!!!')
+        handleSignOut()
+    }
 
     // const handleUpdateUserEmail = email => {
     //     setIsLoading(true)
@@ -89,7 +85,7 @@ export const useSupabaseAuth = () => {
     // }
 
     return { 
-        handleSignIn, handleSignUp, handleSignOut,
+        handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
 
         // handleSignUp, handleSignIn, handleSignOut, handleChangePassword, 
         // handleUpdateUserEmail, handleDeleteUser, isLoading, error 
