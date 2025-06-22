@@ -1,10 +1,6 @@
 import supabase from "@/supabase.client";
-import { AuthError } from "@supabase/supabase-js";
-import { useState } from "react";
-// import router from "../router";
 
 export const useSupabaseAuth = () => {
-    // const user = auth.currentUser;
     
     const handleSignOut = async() => {
         const { error } = await supabase.auth.signOut()
