@@ -84,7 +84,7 @@ export const useSupabaseAuth = () => {
 
     return { 
         handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
-        handleResetPassword,
+        handleResetPassword, handleUpdateUserEmail,
 
         // handleSignUp, handleSignIn, handleSignOut, handleChangePassword, 
         // handleUpdateUserEmail, handleDeleteUser, isLoading, error 
