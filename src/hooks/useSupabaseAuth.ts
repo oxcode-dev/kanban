@@ -43,9 +43,9 @@ export const useSupabaseAuth = () => {
         }
     }
 
-    const handleResetPassword = async (email: string, ) => {
-        const { error, data } = await supabase.auth.resetPasswordForEmail('valid.email@supabase.io', {
-            redirectTo: 'http://example.com/account/update-password',
+    const handleResetPassword = async (email: string, redirectToUrl: string | undefined) => {
+        const { error, data } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: redirectToUrl,
         })
     }
 
@@ -91,6 +91,7 @@ export const useSupabaseAuth = () => {
 
     return { 
         handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
+        handleResetPassword,
 
         // handleSignUp, handleSignIn, handleSignOut, handleChangePassword, 
         // handleUpdateUserEmail, handleDeleteUser, isLoading, error 
