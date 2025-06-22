@@ -70,8 +70,8 @@ export const useSupabaseAuth = () => {
     }
 
     const handleDeleteUser = async () => {
-        let user = supabase.auth.getUser()
-        const { error } = await supabase.auth.admin.deleteUser()
+        const currentUser = await supabase.auth.getUser()
+        const { error } = await supabase.auth.admin.deleteUser(currentUser?.data?.user?.id || '')
 
         return error
     }
