@@ -69,18 +69,11 @@ export const useSupabaseAuth = () => {
         return data
     }
 
-    // const handleDeleteUser = () => {
-    //     deleteUser(user).then(() => {
-    //         alert('Account Deleted')
-    //         handleSignOut()
-    //     }).catch((error) => {
-    //         if(error.code === 'auth/requires-recent-login') {
-    //             alert(errorResponse(error))
-    //             handleSignOut()
-    //         }
-    //         console.log(errorResponse(error.code));
-    //     });
-    // }
+    const handleDeleteUser = async () => {
+        const { error } = await supabase.auth()
+
+        return error
+    }
 
     return { 
         handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
