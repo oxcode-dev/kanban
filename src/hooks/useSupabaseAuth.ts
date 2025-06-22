@@ -53,27 +53,20 @@ export const useSupabaseAuth = () => {
 
         const {error} = await supabase.auth.updateUser({ password: 'new_password' })
 
+       return error
+    }
+
+    const handleUpdateUserEmail = async (email: string) => {
+
+        const { data, error } = await supabase.auth.updateUser({
+            email: email,
+        })
+
         if(error) {
             return error//.message
         }
-        alert('Password Updated Successfully!!!')
-        handleSignOut()
-    }
 
-    const handleUpdateUserEmail = email => {
-
-        updateEmail(auth.currentUser, email).then(() => {
-            setIsLoading(false)
-            alert('Email Updated Successfully!!!')
-        }).catch((error) => {
-            setIsLoading(false)
-            if(error.code === 'auth/requires-recent-login') {
-                alert(errorResponse(error.code))
-                handleSignOut()
-            }
-
-            console.log(errorResponse(error.code))
-        });
+        return data
     }
 
     // const handleDeleteUser = () => {
