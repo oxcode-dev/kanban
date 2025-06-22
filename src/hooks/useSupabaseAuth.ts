@@ -26,14 +26,14 @@ export const useSupabaseAuth = () => {
         }
     }
 
-    const handleSignUp = async (email: string, password: string, url: string | undefined) => {
+    const handleSignUp = async (email: string, password: string, redirectToUrl: string | undefined) => {
 
         try {
             const { error } = await supabase.auth.signUp({
                 email: email,
                 password: password,
                 options: {
-                    emailRedirectTo: url,
+                    emailRedirectTo: redirectToUrl,
                 },
             })
 
@@ -41,6 +41,12 @@ export const useSupabaseAuth = () => {
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const handleResetPassword = async (email: string, ) => {
+        const { error, data } = await supabase.auth.resetPasswordForEmail('valid.email@supabase.io', {
+            redirectTo: 'http://example.com/account/update-password',
+        })
     }
 
     const handleChangePassword = async (password: string) => {
@@ -54,22 +60,21 @@ export const useSupabaseAuth = () => {
         handleSignOut()
     }
 
-    // const handleUpdateUserEmail = email => {
-    //     setIsLoading(true)
+    const handleUpdateUserEmail = email => {
 
-    //     updateEmail(auth.currentUser, email).then(() => {
-    //         setIsLoading(false)
-    //         alert('Email Updated Successfully!!!')
-    //     }).catch((error) => {
-    //         setIsLoading(false)
-    //         if(error.code === 'auth/requires-recent-login') {
-    //             alert(errorResponse(error.code))
-    //             handleSignOut()
-    //         }
+        updateEmail(auth.currentUser, email).then(() => {
+            setIsLoading(false)
+            alert('Email Updated Successfully!!!')
+        }).catch((error) => {
+            setIsLoading(false)
+            if(error.code === 'auth/requires-recent-login') {
+                alert(errorResponse(error.code))
+                handleSignOut()
+            }
 
-    //         console.log(errorResponse(error.code))
-    //     });
-    // }
+            console.log(errorResponse(error.code))
+        });
+    }
 
     // const handleDeleteUser = () => {
     //     deleteUser(user).then(() => {
