@@ -70,16 +70,14 @@ export const useSupabaseAuth = () => {
     }
 
     const handleDeleteUser = async () => {
-        const { error } = await supabase.auth()
+        let user = supabase.auth.getUser()
+        const { error } = await supabase.auth.admin.deleteUser()
 
         return error
     }
 
     return { 
         handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
-        handleResetPassword, handleUpdateUserEmail,
-
-        // handleSignUp, handleSignIn, handleSignOut, handleChangePassword, 
-        // handleUpdateUserEmail, handleDeleteUser, isLoading, error 
+        handleResetPassword, handleUpdateUserEmail, handleDeleteUser
     }
 } 
