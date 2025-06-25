@@ -81,4 +81,3 @@ export const useSupabaseAuth = () => {
         handleResetPassword, handleUpdateUserEmail, handleDeleteUser
     }
 } 
-
