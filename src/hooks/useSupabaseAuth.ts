@@ -80,4 +80,4 @@ export const useSupabaseAuth = () => {
         handleSignIn, handleSignUp, handleSignOut, handleChangePassword,
         handleResetPassword, handleUpdateUserEmail, handleDeleteUser
     }
-} 
+}
